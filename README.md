@@ -1,2 +1,71 @@
-# QolossalCheatMenu
-This is the full source code to Qolossal Cheat Menu V3 (Qolossal.lol), I am releasing this publically because copys boring asf and I have no motativation, yes you read that right lmfao. Please continue the Qolossal legacy, if you decide to release your own fork of the menu please make sure you keep my name somewhere!
+
+<img width="300" height="300" alt="CCMV2Logo" src="https://github.com/user-attachments/assets/327e6d7e-2a8d-4afb-8df8-dbf90ca6b1ce" />
+
+# Qolossal Cheat Menu (https://qolossal.lol)
+This is the full source code to Qolossal Cheat Menu V3 (Qolossal.lol), I am releasing this publically because copys are boring asf and i have no motavation, yes you read that right lmfao. Please continue the Qolossal legacy, if you decide to release your own fork of the menu please make sure you keep my name somewhere!
+
+# How to make this project (almost) uncrackable (for anyone in gtag copy com atleast)
+Qolossal Cheat Menu (V2 + V3) never got cracked but heres what i did to make it good.
+
+### File Checks
+```
+            string decodedAnti = DecodeString(anti1);
+
+            if (anti != decodedAnti)
+            {
+                shouldbeallowed = false;
+                QG();
+                locked = true;
+                return;
+            }
+
+            if (!Directory.Exists(modspath))
+            {
+                shouldbeallowed = false;
+                QG();
+                locked = true;
+                return;
+            }
+
+            if (Directory.GetFiles(modspath, "*QolossalCheatMenuV3*.dll").Length == 0)
+            {
+                shouldbeallowed = false;
+                QG();
+                locked = true;
+                return;
+            }
+```
+
+# How does this work? / Security Practices
+Qolossal Cheat Menu V3 has lots a big security things aswell as smaller things to be a inconvenience to any threat actors, do not remove any of these (everything is there for a reason). I will not be listing everything, but here are a couple things that may confuse you.
+
+### Main DLL
+The Qolossal Cheat Menu V3 project is the main menu with the menu features and main stuff.
+### Process Ending
+In Qolossal Cheat Menu I use 
+```
+
+```
+
+### Manual String Obfuscation
+You will see many things like this, this is just a annoying thing for decompilers/deobfuscation
+```
+"Dfg8afb3AsiHDfg8afb3AsioDfg8afb3AsilDfg8afb3AsidDfg8afb3AsieDfg8afb3AsirDfg8afb3AsiQDfg8afb3AsiCDfg8afb3AsiMDfg8afb3AsiVDfg8afb3Asi3Dfg8afb3Asi".Replace("Dfg8afb3Asi", "")
+```
+### Anti Emulation/Debugger
+This checks if a specific method is in GorillaTagger, if not (you arent running in gorilla tag obviously lmao) and it kills itself.
+```
+                if (typeof(GorillaTagger).GetMethod("L3THASFKAdsfds4tewEAa3THASFKAdsfds4tewEAt3THASFKAdsfds4tewEAe3THASFKAdsfds4tewEAU3THASFKAdsfds4tewEAp3THASFKAdsfds4tewEAd3THASFKAdsfds4tewEAa3THASFKAdsfds4tewEAt3THASFKAdsfds4tewEAe3THASFKAdsfds4tewEA".Replace("3THASFKAdsfds4tewEA", ""), BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic) == null)
+            {
+                Plugin.QG();
+                Application.Quit();
+                Application.ForceCrash(1);
+                Application.CallLowMemory();
+                Environment.Exit(0);
+            }
+```
+
+# Thank you
+Sorry if the code quality is not very good, I have been using the same project for almost 1 year and have just been re-writing parts lmfao.
+
+Credits to Lars/LHAX, Colossus, Mios, Starry, WM/64Will64 for the base code and menu, Marsilacks, Saturn, X0 being there for me.
