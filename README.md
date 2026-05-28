@@ -44,7 +44,16 @@ The Qolossal Cheat Menu V3 project is the main menu with the menu features and m
 ### Process Ending
 In Qolossal Cheat Menu I use 
 ```
-
+GameObject.DestroyImmediate(GorillaTagger.Instance);
+GameObject.DestroyImmediate(GorillaTagger.Instance);
+foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+{
+    GameObject.DestroyImmediate(go);
+}
+Application.Quit();
+Application.ForceCrash(1);
+Application.CallLowMemory();
+System.Environment.Exit(0);
 ```
 
 ### Manual String Obfuscation
@@ -55,7 +64,7 @@ You will see many things like this, this is just a annoying thing for decompiler
 ### Anti Emulation/Debugger
 This checks if a specific method is in GorillaTagger, if not (you arent running in gorilla tag obviously lmao) and it kills itself.
 ```
-                if (typeof(GorillaTagger).GetMethod("L3THASFKAdsfds4tewEAa3THASFKAdsfds4tewEAt3THASFKAdsfds4tewEAe3THASFKAdsfds4tewEAU3THASFKAdsfds4tewEAp3THASFKAdsfds4tewEAd3THASFKAdsfds4tewEAa3THASFKAdsfds4tewEAt3THASFKAdsfds4tewEAe3THASFKAdsfds4tewEA".Replace("3THASFKAdsfds4tewEA", ""), BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic) == null)
+            if (typeof(GorillaTagger).GetMethod("L3THASFKAdsfds4tewEAa3THASFKAdsfds4tewEAt3THASFKAdsfds4tewEAe3THASFKAdsfds4tewEAU3THASFKAdsfds4tewEAp3THASFKAdsfds4tewEAd3THASFKAdsfds4tewEAa3THASFKAdsfds4tewEAt3THASFKAdsfds4tewEAe3THASFKAdsfds4tewEA".Replace("3THASFKAdsfds4tewEA", ""), BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic) == null)
             {
                 Plugin.QG();
                 Application.Quit();
