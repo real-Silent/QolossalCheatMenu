@@ -1,5 +1,5 @@
 
-<img width="300" height="300" alt="qcmv3" src="https://github.com/user-attachments/assets/327e6d7e-2a8d-4afb-8df8-dbf90ca6b1ce" />
+<img width="300" height="300" alt="qcmv3" src="https://raw.githubusercontent.com/novaissilly/ServerData/main/qcmv3.png" />
 
 # Qolossal Cheat Menu (https://qolossal.lol)
 This is the full source code to Qolossal Cheat Menu V3 (Qolossal.lol), I am releasing this publically because copys are boring asf and i have no motavation, yes you read that right lmfao. Please continue the Qolossal legacy, if you decide to release your own fork of the menu please make sure you keep my name somewhere!
