@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\QolossalCheatMenuV3\QolossalCheatMenuV3\QolossalCheatMenuV3\obj\Debug\net48\QolossalCheatMenuV3.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\QolossalCheatMenuV3\QolossalCheatMenuV3\QolossalCheatMenuV3\obj\Debug\net48\QolossalCheatMenuV3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\QolossalCheatMenuV3\QolossalCheatMenuV3\QolossalCheatMenuV3\obj\Debug\net48\QolossalCheatMenuV3.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\QolossalCheatMenuV3\QolossalCheatMenuV3\QolossalCheatMenuV3\obj\Debug\net48\QolossalCheatMenuV3.AssemblyInfo.cs
+C:\Users\User\Desktop\QolossalCheatMenuV3\QolossalCheatMenuV3\QolossalCheatMenuV3\obj\Debug\net48\QolossalCheatMenuV3.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\QolossalCheatMenuV3\QolossalCheatMenuV3\QolossalCheatMenuV3\obj\Debug\net48\QolossalCheatMenuV3.sourcelink.json
