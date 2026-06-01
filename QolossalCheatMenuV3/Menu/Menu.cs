@@ -234,6 +234,7 @@ namespace Qolossal.Menu
                     agreement = true;
                     Console.ConsoleQolossal.LoadConsole();
                     LoadOnce();
+                    Plugin.QG(); // to comfirm menu loads without error
                 }
             }
             else
@@ -601,6 +602,7 @@ namespace Qolossal.Menu
                             {
                                 inputcooldown = true;
                                 UpdateMenuState(CurrentViewingMenu[SelectedOptionIndex], null, "optionhit");
+                                Plugin.QG();
                             }
                         }
                     }
