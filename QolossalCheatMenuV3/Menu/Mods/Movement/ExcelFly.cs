@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Qolossal.Mods
 {
-    [MelonLoader.RegisterTypeInIl2Cpp]
+    // [MelonLoader.RegisterTypeInIl2Cpp]
     public class ExcelFly : MonoBehaviour
     {
-        public ExcelFly(IntPtr e) : base(e) { }
+        //public ExcelFly(IntPtr e) : base(e) { }
         private static readonly float[] speeds = { 0f, 8f, 6f, 4f, 2f, 1f };
         static float speed;
         public virtual void Update()
