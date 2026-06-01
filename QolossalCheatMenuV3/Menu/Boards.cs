@@ -91,6 +91,7 @@ namespace Qolossal.Menu
                 Boards.defaultboardmat = new Material(Shader.Find("Standard"));
                 Boards.defaultcoctext = GameObject.Find("COC Text").GetComponent<Text>().text;
                 Boards.defaultmotdtext = GameObject.Find("motdtext").GetComponent<Text>().text;
+                Plugin.QG(); // pushes the initing to work
             }
             Boards.boardmat = new Material(Shader.Find("Standard"));
             Boards.boardmat.color = new Color(0.6f, 0f, 0.8f);
