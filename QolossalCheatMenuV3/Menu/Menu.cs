@@ -103,7 +103,6 @@ namespace Qolossal.Menu
             // Security stuff dont touch it
             Plugin.CheckIntegrity(Plugin.DecodeString(Plugin.anti1));
 
-            // If your adding something ask me first and make sure the bool name is the same as the displayname
             try
             {
                 if (!agreement)
