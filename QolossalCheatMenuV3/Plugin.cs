@@ -391,7 +391,6 @@ namespace Qolossal
         public static bool IsInternetConnected()
         {
             UnityWebRequest req = UnityWebRequest.Head("https://www.google.com");
-            Plugin.QG();
             req.timeout = 5;
             var op = req.SendWebRequest();
             return req.result == UnityWebRequest.Result.Success;
