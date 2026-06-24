@@ -13,10 +13,14 @@
 	<ItemGroup>
 	  <None Remove="Console\Resources\crown.png" />
 	  <None Remove="Console\Resources\icon.png" />
+	  <None Remove="Resources\NLayer.dll" />
+	  <None Remove="Resources\NVorbis.dll" />
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="Console\Resources\crown.png" />
 	  <EmbeddedResource Include="Console\Resources\icon.png" />
+	  <EmbeddedResource Include="Resources\NLayer.dll" />
+	  <EmbeddedResource Include="Resources\NVorbis.dll" />
 	</ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -134,8 +138,14 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NLayer">
+      <HintPath>..\..\..\Downloads\NLayer.dll</HintPath>
+    </Reference>
     <Reference Include="nunitlite">
       <HintPath>bin\Debug\nunitlite.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis">
+      <HintPath>..\..\..\Downloads\NVorbis.dll</HintPath>
     </Reference>
     <Reference Include="Oculus.AudioManager">
       <HintPath>bin\Debug\Oculus.AudioManager.dll</HintPath>

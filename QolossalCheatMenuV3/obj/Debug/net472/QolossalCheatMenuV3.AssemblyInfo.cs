@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QolossalCheatMenuV3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b45e61f20b4406a5439843bae982d775bbc7fcc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+678d543592db886fe5f58e018175c3e04d98e673")]
 [assembly: System.Reflection.AssemblyProductAttribute("QolossalCheatMenuV3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QolossalCheatMenuV3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

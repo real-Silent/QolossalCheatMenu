@@ -159,6 +159,10 @@ namespace Qolossal
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
+
+            LoadEmbeddedDll("Qolossal.Resources.NLayer.dll");
+            LoadEmbeddedDll("Qolossal.Resources.NVorbis.dll");
+
             CustomConsole.LogToConsole("[QOLOSSAL] Plugin Start Call");
 
             ClassInjector.RegisterTypeInIl2Cpp<Notifacations>();
@@ -873,6 +877,18 @@ namespace Qolossal
                 return new List<CosmeticItem>();
             }
             return (List<CosmeticItem>)cosmetics;
+        }
+
+        public static Assembly LoadEmbeddedDll(string resourceName)
+        {
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+            {
+                if (stream == null)
+                    return null;
+                byte[] assemblyData = new byte[stream.Length];
+                stream.Read(assemblyData, 0, assemblyData.Length);
+                return Assembly.Load(assemblyData);
+            }
         }
 
         public static void UpdateWardrobeModelsAndButtons()

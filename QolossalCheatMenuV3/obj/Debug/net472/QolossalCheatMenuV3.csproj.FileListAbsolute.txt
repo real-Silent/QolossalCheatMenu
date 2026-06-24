@@ -312,3 +312,5 @@ C:\Users\User\Desktop\QolossalCheatMenu\QolossalCheatMenuV3\obj\Debug\net472\Qol
 C:\Users\User\Desktop\QolossalCheatMenu\QolossalCheatMenuV3\obj\Debug\net472\Qolossal.CE86AAB5.Up2Date
 C:\Users\User\Desktop\QolossalCheatMenu\QolossalCheatMenuV3\obj\Debug\net472\QolossalCheatMenuV3.dll
 C:\Users\User\Desktop\QolossalCheatMenu\QolossalCheatMenuV3\obj\Debug\net472\QolossalCheatMenuV3.pdb
+C:\Users\User\Desktop\QolossalCheatMenu\QolossalCheatMenuV3\bin\Debug\net472\NLayer.dll
+C:\Users\User\Desktop\QolossalCheatMenu\QolossalCheatMenuV3\bin\Debug\net472\NVorbis.dll
