@@ -106,7 +106,7 @@ namespace Qolossal
 
         public static GameObject holder;
         public static Font gtagfont;
-        public static float version = 8.4f;
+        public static float version = 8.5f;
 
         public static bool sussy = false;
         public static bool update = false;
