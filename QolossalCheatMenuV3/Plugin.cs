@@ -231,7 +231,7 @@ namespace Qolossal
             ClassInjector.RegisterTypeInIl2Cpp<SpazAllCosmeics>();
             ClassInjector.RegisterTypeInIl2Cpp<SpazAllCosmeicsTryOn>();
             ClassInjector.RegisterTypeInIl2Cpp<Throw>();
-            //ClassInjector.RegisterTypeInIl2Cpp<BecomeNetworkPlayer>();
+            ClassInjector.RegisterTypeInIl2Cpp<BecomeNetworkPlayer>();
             ClassInjector.RegisterTypeInIl2Cpp<BecomePlayerGun>();
             ClassInjector.RegisterTypeInIl2Cpp<AudioCrash>();
             ClassInjector.RegisterTypeInIl2Cpp<KickGun>();
@@ -546,7 +546,7 @@ namespace Qolossal
                 { typeof(SpazAllCosmeics), PluginConfig.spazallcosmetics },
                 { typeof(SpazAllCosmeicsTryOn), PluginConfig.spazallcosmeticstryon },
                 { typeof(Throw), PluginConfig.Throw },
-               // { typeof(BecomeNetworkPlayer), PluginConfig.becomenetworkplayer },
+                { typeof(BecomeNetworkPlayer), PluginConfig.becomenetworkplayer },
                 { typeof(BecomePlayerGun), PluginConfig.becomeplayergun },
                 { typeof(AudioCrash), PluginConfig.audiocrash },
                 { typeof(KickGun), PluginConfig.kickgun },

@@ -80,7 +80,7 @@ namespace Qolossal.Menu
 
         // Exploits
         public static bool audiocrash = false;
-        //public static bool becomenetworkplayer = false;
+        public static bool becomenetworkplayer = false;
         public static bool becomeplayergun = false; public static string becomeplayergun_bind = "";
         public static bool spazallcosmeticstryon = false;
         public static bool spazallcosmetics = false;

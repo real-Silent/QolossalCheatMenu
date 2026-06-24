@@ -143,7 +143,7 @@ namespace Qolossal.Menu
             Exploits2[9] = new MenuOption { DisplayName = "Next", _type = Plugin.submenuthingy, AssociatedString = "Exploits3" };
             Exploits2[10] = new MenuOption { DisplayName = "Back", _type = Plugin.submenuthingy, AssociatedString = Plugin.backthingy };
 
-            Exploits3 = new MenuOption[8];
+            Exploits3 = new MenuOption[9];
             Exploits3[0] = new MenuOption { DisplayName = "Kick Gun", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.kickgun };
             Exploits3[1] = new MenuOption { DisplayName = "Lag Gun", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.laggun };
             Exploits3[2] = new MenuOption { DisplayName = "Rig Spam", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.rigspam };
@@ -151,7 +151,8 @@ namespace Qolossal.Menu
             Exploits3[4] = new MenuOption { DisplayName = "Material Spam All", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.MaterialSpamAll };
             Exploits3[5] = new MenuOption { DisplayName = "Material Spam Gun", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.MaterialSpamGun };
             Exploits3[6] = new MenuOption { DisplayName = "Become Player Gun", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.becomeplayergun };
-            Exploits3[7] = new MenuOption { DisplayName = "Back", _type = Plugin.submenuthingy, AssociatedString = Plugin.backthingy };
+            Exploits3[7] = new MenuOption { DisplayName = "Become Network Player", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.becomenetworkplayer };
+            Exploits3[8] = new MenuOption { DisplayName = "Back", _type = Plugin.submenuthingy, AssociatedString = Plugin.backthingy };
 
             CosmeticsSpoofer = new MenuOption[4];
             CosmeticsSpoofer[0] = new MenuOption { DisplayName = "Spaz All Cosmetics (Try On)", _type = Plugin.togglethingy, AssociatedBool = PluginConfig.spazallcosmeticstryon, extra = "[CITY]" };

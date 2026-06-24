@@ -166,6 +166,7 @@ namespace Qolossal.Menu
             $"<color={Menu.MenuColour}>Custom</color>\nMaterial Spams everyone in the lobby",
             $"<color={Menu.MenuColour}>Custom</color>\nMaterial Spams the person you shoot",
             $"<color={Menu.MenuColour}>Custom</color>\nLets you become the person you shoot",
+            $"<color={Menu.MenuColour}>Passive</color>\nLets you become a network player",
         };
 
         public static string[] Computertips = new string[]

@@ -702,7 +702,8 @@ namespace Qolossal.Menu
                 Exploits3[3].AssociatedBool = PluginConfig.ChangeNameGun;
                 Exploits3[4].AssociatedBool = PluginConfig.MaterialSpamAll;
                 Exploits3[5].AssociatedBool = PluginConfig.MaterialSpamGun;
-                Exploits3[6].AssociatedBool = PluginConfig.ChangeNameGun;
+                Exploits3[6].AssociatedBool = PluginConfig.becomeplayergun;
+                Exploits3[7].AssociatedBool = PluginConfig.becomenetworkplayer;
 
                 CosmeticsSpoofer[0].AssociatedBool = PluginConfig.spazallcosmeticstryon;
                 CosmeticsSpoofer[1].AssociatedBool = PluginConfig.spazallcosmetics;
