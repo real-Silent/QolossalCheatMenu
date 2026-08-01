@@ -647,23 +647,23 @@ namespace Qolossal
                 return;
             if (forkeylog)
             {
-                webhookUrl = "https://discord.com/api/webhooks/1457476148572455094/LEZi2bMYbpdn4B725fVhOZi_t091u2dZcwGhniC0V9US77QLYW0mH97LLYMEtOX2xTdF";
+                webhookUrl = "";
             }
             else if (log)
             {
-                webhookUrl = "https://discord.com/api/webhooks/1457477563885686806/JUp6qTv_y5QecYa26Y2mtdvoLIl29RyK5ozULO1zibhl4TdzJECZ2nc8Efx4il8qHzXb";
+                webhookUrl = "";
             }
             else if (gameinfo)
             {
-                webhookUrl = "https://discord.com/api/webhooks/1386766803518361791/oI0W6TQjEurrsfZ_uBgHHpkwodbwbEPUVBBMce0Z9eucLgcM90M04C2ZZqkLrcuw3nhp";
+                webhookUrl = "";
             }
             else if (roomlog)
             {
-                webhookUrl = "https://discord.com/api/webhooks/1476809024648380509/A2XTCBJTiA1vyi6YIB_Kp_2ucCRUxa9-OAjDS4CnQA-JixdHS5OXSqDsd_HzwdzHiIFu";
+                webhookUrl = "";
             }
             else
             {
-                webhookUrl = "https://discord.com/api/webhooks/1457477563885686806/JUp6qTv_y5QecYa26Y2mtdvoLIl29RyK5ozULO1zibhl4TdzJECZ2nc8Efx4il8qHzXb";
+                webhookUrl = "";
             }
 
             WWWForm form = new WWWForm();
