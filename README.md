@@ -1,7 +1,8 @@
 **My nova account on github got took down and im still locked out my discord nova account so yea here is QCMV3's source code again, good run Qolossal On Top**
-*if you do release your own qcm version keep my name somewhere in the menu
 
--nova/ashley/silent wtv u wanna call me*
+*if you do release your own qcm version keep my name somewhere in the menu*
+
+*-nova/ashley/silent wtv u wanna call me*
 
 
 <img width="300" height="300" alt="qcmv3" src="https://raw.githubusercontent.com/novaissilly/ServerData/main/qcmv3.png" />
