@@ -8,6 +8,8 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
+// this shit never worked lmao -nova
+
 namespace Qolossal
 {
     [Serializable]
