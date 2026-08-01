@@ -1,7 +1,7 @@
 
 <img width="300" height="300" alt="qcmv3" src="https://raw.githubusercontent.com/novaissilly/ServerData/main/qcmv3.png" />
 
-# Qolossal Cheat Menu (https://qolossal.lol)[https://qolossallol.vercel.app]
+# Qolossal Cheat Menu (https://novax.lol)[https://novax.lol]
 This is the full source code to Qolossal Cheat Menu V3 (Qolossal.lol), I am releasing this publically because copys are boring asf and i have no motavation, yes you read that right lmfao. Please continue the Qolossal legacy, if you decide to release your own fork of the menu please make sure you keep my name somewhere! (Please do it means alot)
 
 # How to make this project (almost) uncrackable (for anyone in gtag copy com atleast)
@@ -81,5 +81,5 @@ All Credits to Colossus otherwise none of this would of happened <3
 
 Credits to Lars/LHAX, Colossus, Mios, Starry, WM/64Will64 for the base code and menu, Marsilacks, Saturn, X0 being there for me and motovating me.
 Its been 3-4 years since I started copy modding and its been starting to get really really dead since 2025 onwards, I just dont know what to do so heres the source code <3
-Credits: [https://qolossallol.vercel.app/credits
-](https://qolossallol.vercel.app/credits)
+Credits: [[https://qolossallol.vercel.app/credits
+](https://novax.lol)](https://novax.lol)
